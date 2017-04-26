@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Belt</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if flash[:notice] %>
+     <h1><%= flash[:notice] %></h1>
+   <% end %>
+   <% if flash[:errors] %>
+     <% flash[:errors].each do |e| %>
+       <p><%= e %></p>
+     <% end %>
+   <% end %>
+   <% if current_user %>
+
+    <a href="/sessions/<%= current_user.id %>" data-method="delete">Logout</a>
+    <br>
+    <%= link_to "Dashboard" , songs_path%>
+
+   <% end %>
+
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>dojomusichub</title>
+  </head>
+  <body>
+    <h1>Other users who added <%= @song.artist %>-<%= @song.title %> </h1>
+
+    <table>
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Times Added</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each_pair do |user, songs| %>
+          <tr>
+            <td><%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %></td>
+            <td><%= songs.count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </body>
+</html>

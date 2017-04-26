@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>dojomusichub</title>
+  </head>
+  <body>
+    <h1><%= "#{@user.first_name}" %> <%= @user.last_name%>'s playlist</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <td>Artist</td>
+          <td>Title</td>
+          <td>Times Added</td>
+        </tr>
+      </thead>
+      <tbody>
+        <%@playlist.each_pair do |songs ,user| %>
+        <tr>
+          <td><%= songs.artist%></td>
+          <td><%= songs.title%></td>
+          <td><%= songs.count%></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </body>
+</html>
